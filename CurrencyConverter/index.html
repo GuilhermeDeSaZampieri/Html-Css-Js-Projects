@@ -10,25 +10,26 @@
     <section>
       <main class="main">
         <h1>Currency Converter</h1>
-        <form class="form" method="get">
+        <form class="form" id="form"  method="get">
           <label for="amount">Amount</label>
-          <input type="text" 
-          required
-          name="amount" 
-          pattern="[0-9]{1,30}"
-          placeholder="Enter amount" />
+          <input
+            type="number"
+            required
+            name="amount"
+            pattern="[0-9]{1,30}"
+            placeholder="Enter amount"
+          />
 
           <label for="amount">From</label>
           <select name="from" id="from">
-            <option value="USD">USD</option>
           </select>
 
           <label for="to">To</label>
           <select name="to" id="to">
-            <option value="EUR">EUR</option>
           </select>
+          <button type="submit" class="btnConvert">Convert</button>
         </form>
-        <button class="btnConvert">Convert</button>
+        <p id="result"></p>
       </main>
     </section>
 

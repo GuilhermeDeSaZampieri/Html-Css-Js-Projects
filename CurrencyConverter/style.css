@@ -52,9 +52,6 @@ select {
   opacity: 0.8;
 }
 
-input:invalid {
-  border: red solid 3px;
-}
 input:focus {
   outline: none; 
   border: 2px solid rgba(54, 63, 94, 0.29);
@@ -77,10 +74,18 @@ label {
   background-color: var(--bgButton);
   color: white;
   font-size: 1.2rem;
-  padding: 1rem;
+  margin-top: 1rem;
+  padding: 0.7rem;
   border: none;
   cursor: pointer;
 }
 .btnConvert:hover {
   background-color:rgb(34, 119, 255);
+}
+
+#result{
+  font-size: 18px;
+  color: var(--h1Color);
+  weight: 700;
+  margin: 10px;
 }
