@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bgColor: #0e1629;
+  --mainBgColor: #20283b;
+  --h1Color: #dbe3f6;
+  --bgButton: #3b82f8;
+  --bgInputColor: #324154;
+  --font: sans-serif;
+}
+
+body {
+
+  background-color: var(--bgColor);
+  font-family: var(--font);
+}
+section{  
+  align-content: center;
+  justify-items: center;
+  height: 100vh;
+}
+
+.main {
+  display: grid;
+  text-align: center;
+  gap: 0.8rem;
+  background-color: var(--mainBgColor);
+  max-width: 400px;
+  width: 50%;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+.form {
+  display: grid;
+  text-align: left;
+  gap: 0.3rem;
+}
+
+input,
+select {
+  background-color: var(--bgInputColor);
+  border: none;
+  padding: 0.7rem;
+  border-radius: 0.3rem;
+  color: var(--h1Color);
+  font-weight: 600;
+  font-size:14px;
+  opacity: 0.8;
+}
+
+input:invalid {
+  border: red solid 3px;
+}
+input:focus {
+  outline: none; 
+  border: 2px solid rgba(54, 63, 94, 0.29);
+}
+
+
+h1 {
+  color: var(--h1Color);
+}
+label {
+  color: var(--h1Color);
+  opacity: 0.6;
+  margin-top: 0.8rem;
+  font-size:16px;
+  font-weight: 500;
+
+}
+
+.btnConvert {
+  background-color: var(--bgButton);
+  color: white;
+  font-size: 1.2rem;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+}
+.btnConvert:hover {
+  background-color:rgb(34, 119, 255);
+}
