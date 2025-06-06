@@ -11,6 +11,7 @@
   --bgButton: #3b82f8;
   --bgInputColor: #324154;
   --font: sans-serif;
+  --bgButtonHover: rgb(34, 119, 255);
 }
 
 body {
@@ -80,7 +81,7 @@ label {
   cursor: pointer;
 }
 .btnConvert:hover {
-  background-color:rgb(34, 119, 255);
+  background-color:var(--bgButtonHover);
 }
 
 #result{
