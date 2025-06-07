@@ -1,0 +1,52 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bgColor: #121212;
+  --bgMainColor: #1e1e1e;
+  --purpleColor: #BA87FD;
+  --font: sans-serif;
+  --fontColor: #E2E0E3;
+
+}
+
+body {
+  height: 100vh;
+  background-color: var(--bgColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main {
+  background-color: var(--bgMainColor);
+  max-width: 500px;
+  width: 50%;
+  height: 200px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h1{
+    font-family: var(--font);
+    color: var(--fontColor);
+    font-weight: 600;
+}
+
+p{
+    font-family: var(--font);
+    color: var(--fontColor);
+        font-weight: 400;
+        opacity: 0.8;
+
+}
+
+#icon{
+    color: var(--purpleColor);
+    font-size: 40px;
+}

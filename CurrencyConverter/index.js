@@ -12,6 +12,7 @@ async function fetchCurrences() {
   const data = await resp.json();
 
   const currencyOptions = Object.keys(data.rates);
+
   currencyOptions.forEach((currency) => {
     const option1 = document.createElement("option");
     option1.value = currency;
@@ -41,6 +42,7 @@ async function Result(e) {
   }
 
   const rate = data.rates[to.value];
+
   const convert = (rate * amount).toFixed(2);
 
   p.textContent = `${amount} ${from.value} = ${convert} ${to.value}`;
