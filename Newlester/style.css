@@ -62,7 +62,7 @@ form {
   gap: 0.9rem;
 }
 
-#enterEmail {
+input {
   background-color: var(--bgInput);
   border: none;
   color: var(--fontColor);
@@ -70,10 +70,12 @@ form {
   border-radius: 5px;
   padding: 0.7rem;
   font-size: 1rem;
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  background-size: 20px; 
 }
+input:focus {
+  outline: none;
+  border: 2px solid #9855f0;
+}
+
 
 button {
   background-color: var(--purpleColor);
@@ -83,6 +85,10 @@ button {
   padding: 0.7rem;
   font-weight: 700;
   font-size: 1rem;
+}
+
+button:hover {
+  background-color: #9855f0;
 }
 
 hr {

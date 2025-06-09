@@ -9,16 +9,31 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=drafts"
     />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
   </head>
   <body>
     <div id="main">
       <span class="material-symbols-outlined" id="icon"> drafts </span>
       <h1>Join Our Newsletter</h1>
       <p>Get the latest updates and coding tips straight to your inbox</p>
-      <form action="">
-        <input type="email" id="enterEmail" placeholder="Enter your email" />
-        
-        <button id="button">Subscribe -></button>
+      <form action="" id="form">
+        <input
+          type="text"
+          id="enterName"
+          required
+          placeholder="Enter your Name"
+        />
+        <input
+          type="email"
+          id="enterEmail"
+          required
+          placeholder="Enter your email"
+        />
+
+        <button type="submit" id="button">Subscribe -></button>
         <hr />
       </form>
       <div id="divP">
@@ -26,5 +41,8 @@
         <p><i>✔</i> No spam, unsubscribe anytime</p>
       </div>
     </div>
+    <script src="index.js">
+                  
+    </script>
   </body>
 </html>
