@@ -1,0 +1,105 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --hr: #6b7ce4;
+  --font: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  font-family: var(--font);
+}
+main {
+  width: 60%;
+  max-width: 800px;
+  background-color: white;
+  padding: 3rem;
+  border-radius: 1rem;
+}
+header {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+h1 {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+hr {
+  margin-top: 10px;
+  height: 4px;
+  background-color: var(--hr);
+  border-width: 0;
+}
+#section {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font-size: 18px;
+  width: 40%;
+  max-width: 200px;
+  color: white;
+  background-image: linear-gradient(to left, #6876e0, #7650aa);
+  padding: 0.8rem;
+  border: none;
+  border-radius: 30px;
+}
+
+button:hover {
+  background: linear-gradient(270deg, #6876e0, #7650aa, #6876e0);
+  background-size: 600% 600%;
+  animation: animateGradient 4s ease infinite;
+  cursor: pointer;
+}
+
+@keyframes animateGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#paleta {
+  height: 9rem;
+  border-radius: 5px;
+  background-color: #6876e0;
+}
+#cor {
+  height: 80%;
+  background-color: red;
+  border-radius: 5px;
+}
+#info {
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgba(255, 255, 255, 0.945);
+}
+
+#gridColors {
+    margin-top: 1rem;
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: column;
+}
