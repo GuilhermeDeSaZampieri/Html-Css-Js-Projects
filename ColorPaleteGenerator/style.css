@@ -15,8 +15,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
   font-family: var(--font);
+  background-image: linear-gradient(to left, #6876e0, #7650aa);
 }
 main {
   width: 60%;
@@ -49,7 +49,7 @@ hr {
   flex-direction: column;
 }
 
-button {
+#button {
   font-size: 18px;
   width: 40%;
   max-width: 200px;
@@ -60,7 +60,7 @@ button {
   border-radius: 30px;
 }
 
-button:hover {
+#button:hover {
   background: linear-gradient(270deg, #6876e0, #7650aa, #6876e0);
   background-size: 600% 600%;
   animation: animateGradient 4s ease infinite;
@@ -81,24 +81,35 @@ button:hover {
 
 #paleta {
   height: 9rem;
-  border-radius: 5px;
-  background-color: #6876e0;
 }
 #cor {
   height: 80%;
-  background-color: red;
-  border-radius: 5px;
 }
+
 #info {
   height: 20%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: rgba(255, 255, 255, 0.945);
+  background-color: rgb(238, 237, 237);
+  cursor: pointer;
+}
+#input {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  gap: 10px;
+  justify-content: center;
+  display: flex;
+  cursor: pointer;
+  font-weight: 700;
+}
+#input:hover {
+  transform: scale(1.1);
 }
 
 #gridColors {
-    margin-top: 1rem;
+  margin-top: 1rem;
   display: grid;
   gap: 1rem;
   grid-auto-flow: column;
