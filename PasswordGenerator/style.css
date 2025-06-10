@@ -1,0 +1,178 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+:root {
+  --leftBack: #315376;
+  --rightBack: #484675;
+  --formBack: #f6f7f9ef;
+  --cardBack: #fafbfd;
+  --fontColor: #2c5877;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    to right,
+    var(--leftBack),
+    var(--rightBack)
+  );
+}
+
+main {
+  background-color: var(--formBack);
+  border-radius: 10px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 50%;
+  max-width: 400px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+h1 {
+  color: var(--fontColor);
+}
+hr {
+  background-color: var(--fontColor);
+  border-width: 0;
+  height: 4px;
+  width: 50%;
+  margin-top: 10px;
+}
+
+#generatorPass {
+  background-color: var(--cardBack);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  border-radius: 2px;
+  width: 100%;
+  opacity: 0.7;
+}
+#copyPass {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #868fa3;
+}
+form {
+  width: 100%;
+}
+
+#form {
+  border-radius: 5px;
+  background-color: var(--cardBack);
+  padding: 10px;
+  width: 100%;
+  display: grid;
+  gap: 1rem;
+}
+
+#choses {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+label {
+  font-size: medium;
+  width: 50%;
+  opacity: 0.6;
+}
+input[type="range"] {
+  height: 5px;
+  flex: 1;
+  cursor: pointer;
+  accent-color: var(--fontColor);
+}
+input[type="checkbox"] {
+  accent-color: var(--fontColor);
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+}
+#valueRange{
+    font-size: medium;
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    background-color: #768ec4;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+  margin-top: 1.5rem;
+  width: 100%;
+  border-radius: 5px;
+  padding: 0.7rem;
+  font-size: medium;
+  border: none;
+  background-image: linear-gradient(
+    to right,
+    var(--leftBack),
+    var(--rightBack)
+  );
+  color: var(--formBack);
+}
+
+button:hover {
+  background: linear-gradient(270deg, var(--leftBack), var(--rightBack));
+  background-size: 600% 600%;
+  animation: animateGradient 4s ease infinite;
+  cursor: pointer;
+  scale: 1.05;
+}
+
+@keyframes animateGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+footer{
+    display: grid;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 0.7rem;
+}
+#passwordStrong{
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#loadPassword{
+    width: 100%;
+    height: 10px;
+    border-radius: 4px;
+    background-color: var(--cardBack);
+}

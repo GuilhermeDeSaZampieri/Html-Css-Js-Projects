@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Password Generator</h1>
+        <hr />
+        <div id="generatorPass">
+          <p id="password">aaaa</p>
+          <i class="fa-solid fa-copy" id="copyPass"></i>
+        </div>
+      </header>
+
+      <form action="">
+        <div id="form">
+          <div id="choses">
+            <label for="lenght">Password Length</label>
+            <input type="range" name="lenght" id="lenght" min="0" max="30" />
+            <div id="valueRange"></div>
+          </div>
+
+          <div id="choses">
+            <label for="Uppercase">Include Uppercase</label>
+            <input type="checkbox" name="Uppercase" id="Uppercase" />
+          </div>
+
+          <div id="choses">
+            <label for="Lowercase">Include Lowercase</label>
+            <input type="checkbox" name="Lowercase" id="Lowercase" />
+          </div>
+
+          <div id="choses">
+            <label for="Numbers">Include Numbers</label>
+            <input type="checkbox" name="Numbers" id="Numbers" />
+          </div>
+
+          <div id="choses">
+            <label for="Symbols">Include Symbols</label>
+            <input type="checkbox" name="Symbols" id="Symbols" />
+          </div>
+        </div>
+
+        <button type="submit">
+          <i class="fa-solid fa-key"></i> Generate Password
+        </button>
+      </form>
+
+      <footer>
+        <div id="passwordStrong">
+          <p>Password Strength:</p>
+          <strong>Weak</strong>
+        </div>
+        <div id="loadPassword"></div>
+      </footer>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

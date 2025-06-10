@@ -13,6 +13,7 @@ function GenerateColorSubmit(e) {
   }
 }
 
+
 function GenerateElement() {
   const corGerada = GenerateColor();
 
@@ -44,6 +45,7 @@ function GenerateElement() {
   return paleta;
 }
 
+
 function copyCod(copyButton, textInput) {
   copyButton.addEventListener("click", () => {
     navigator.clipboard
@@ -52,27 +54,10 @@ function copyCod(copyButton, textInput) {
   });
 }
 
+
 function GenerateColor() {
-  let hash = "#";
-  let hexa = [
-    "0",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-  ];
-  let colorHexa = hash;
+  let hexa = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+  let colorHexa = "#";
 
   for (let index = 0; index < 6; index++) {
     let number = Math.floor(Math.random() * 16);
