@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useRef, type FormEvent } from 'react';
+import './App.css';
+import { CiForkAndKnife } from 'react-icons/ci';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  function printarName(e: FormEvent) {
+    e.preventDefault();
+    alert(inputRef.current?.value);
+  }
+  
+
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <header>
+        <h1 className="headerIcon">
+          <CiForkAndKnife /> Recipe Finder
+        </h1>
+        <p>Encontre receitas deliciosas do mundo todo</p>
+      </header>
+
+      <details>
+        Data from{' '}
+        <summary>Saiba mais</summary>
+        <a target="_blank" href="https://www.themealdb.com/">
+          TheMealDB
+        </a>{' '}
+      </details>
+
+      <form className="searchRecipe" method='post' onSubmit={printarName}>
+        <input type="text"  required ref={inputRef} placeholder='Procure receitas'/>
+        <button>PROCURE</button>
+      </form>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
