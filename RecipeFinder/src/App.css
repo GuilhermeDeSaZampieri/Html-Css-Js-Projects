@@ -32,17 +32,16 @@ a:hover {
 
 .searchRecipe {
   display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 10px;
   padding: 5px;
-  width: 500px;
   font-size: 1rem;
 }
 input {
   padding: 1em 1.2em;
   border-radius: 5px;
   border: none;
-  width: 70%;
+  width: 40%;
 }
 
 button {
@@ -62,4 +61,39 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.searchFor {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.recipes {
+  display: grid;
+  column-gap: 1.3rem;
+  row-gap: 1.5rem;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  width: 70vw;
+  color: #3343f1;
+}
+.recipe {
+  background-color: white;
+}
+.recipeImg {
+  width: 100%;
+}
+.recipeDetails {
+  text-align: start;
+  display: grid;
+  gap: 10px;
+  padding: 1rem;
+}
+
+.recipeClass {
+  background-color: #72c0ff96;
+  border-radius: 10px;
+  width: 15%;
+  display: flex;
+  justify-content: center;
 }
