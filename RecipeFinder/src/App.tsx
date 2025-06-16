@@ -2,11 +2,22 @@ import { useRef, useState, type FormEvent } from 'react';
 import './App.css';
 import { CiForkAndKnife } from 'react-icons/ci';
 
+type recipe = {
+  idMeal: string;
+  strMeal: string;
+  strCategory: string;
+  strInstructions: string;
+  strArea: string;
+  strMealThumb: string;
+};
+
 function App() {
   const inputRef = useRef<HTMLInputElement>(null);
+  const [meal, setMeal] = useState<recipe[]>([]);
   const [searchValue, setSearchValue] = useState('');
+  const [inputValue, setInputValue] = useState('');
 
-  async function getUrlInfo(name: string) {
+  async function fetchMeals(name: string) {
     try {
       let url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`;
 
@@ -14,11 +25,13 @@ function App() {
       const data = await response.json();
 
       if (data.meals === null) {
-        return alert("Prato não encontrado")
+        setSearchValue('Receita não encontrada');
+        setMeal([]);
+        return alert('Prato não encontrado');
       }
-      console.log(data.meals);
 
-      return data;
+      setSearchValue(`Receita encontrada "${name}"`);
+      setMeal(data.meals);
     } catch (error) {
       console.log(error);
     }
@@ -26,51 +39,31 @@ function App() {
 
   function handleName(e: FormEvent) {
     e.preventDefault();
-    const valor = inputRef.current?.value;
+    const valor = inputRef.current?.value.trim();
 
     if (valor) {
-      setSearchValue(valor);
-      getUrlInfo(valor);
+      setInputValue(valor);
+      fetchMeals(valor);
     }
   }
 
   function handleSearch() {
     return (
       <>
-        <p className="searchFor">Receita encontrada: "{searchValue}"</p>
+        <p className="searchFor">{searchValue}</p>
         <div className="recipes">
-
-          <div className="recipe">
-            <img className="recipeImg" src="https://hips.hearstapps.com/hmg-prod/images/roast-chicken-recipe-2-66b231ac9a8fb.jpg?crop=0.8888888888888888xw:1xh;center,top&resize=300:*" alt="" />
-            <div className="recipeDetails">
-              <h3 className="recipeName">Chicken Handi</h3>
-              <h5 className="recipeClass">Chicken</h5>
-            </div>
-          </div>
-
-          <div className="recipe">
-            <img className="recipeImg" src="https://hips.hearstapps.com/hmg-prod/images/roast-chicken-recipe-2-66b231ac9a8fb.jpg?crop=0.8888888888888888xw:1xh;center,top&resize=300:*" alt="" />
-            <div className="recipeDetails">
-              <h3 className="recipeName">Chicken Handi</h3>
-              <h5 className="recipeClass">Chicken</h5>
-            </div>
-          </div>
-
-          <div className="recipe">
-            <img className="recipeImg" src="https://hips.hearstapps.com/hmg-prod/images/roast-chicken-recipe-2-66b231ac9a8fb.jpg?crop=0.8888888888888888xw:1xh;center,top&resize=300:*" alt="" />
-            <div className="recipeDetails">
-              <h3 className="recipeName">Chicken Handi</h3>
-              <h5 className="recipeClass">Chicken</h5>
-            </div>
-          </div>
-
-          <div className="recipe">
-            <img className="recipeImg" src="https://hips.hearstapps.com/hmg-prod/images/roast-chicken-recipe-2-66b231ac9a8fb.jpg?crop=0.8888888888888888xw:1xh;center,top&resize=300:*" alt="" />
-            <div className="recipeDetails">
-              <h3 className="recipeName">Chicken Handi</h3>
-              <h5 className="recipeClass">Chicken</h5>
-            </div>
-          </div>
+          {meal.length > 0 &&
+            meal.map(prop => (
+              <div className="recipe" key={prop.idMeal}>
+                <img className="recipeImg" src={prop.strMealThumb} alt="" />
+                <div className="recipeDetails">
+                  <h3 className="recipeName">{prop.strMeal}</h3>
+                  <div className="recipeClass">
+                    <h5>{prop.strCategory}</h5>
+                  </div>
+                </div>
+              </div>
+            ))}
         </div>
       </>
     );
@@ -78,26 +71,28 @@ function App() {
 
   return (
     <>
-      <header>
-        <h1 className="headerIcon">
-          <CiForkAndKnife /> Recipe Finder
-        </h1>
-        <p>Encontre receitas deliciosas do mundo todo</p>
-      </header>
+      <main className="wrapper">
+        <header>
+          <h1 className="headerIcon">
+            <CiForkAndKnife /> Recipe Finder
+          </h1>
+          <p>Encontre receitas deliciosas do mundo todo</p>
+        </header>
 
-      <details>
-        Data from <summary>Saiba mais</summary>
-        <a target="_blank" href="https://www.themealdb.com/">
-          TheMealDB
-        </a>{' '}
-      </details>
+        <details>
+          Data from <summary>Saiba mais</summary>
+          <a target="_blank" href="https://www.themealdb.com/">
+            TheMealDB
+          </a>
+        </details>
 
-      <form className="searchRecipe" method="post" onSubmit={handleName}>
-        <input type="text" ref={inputRef} required placeholder="Procure receitas" />
-        <button>PROCURE</button>
-      </form>
+        <form className="searchRecipe" method="post" onSubmit={handleName}>
+          <input type="text" ref={inputRef} required placeholder="Procure receitas" />
+          <button>PROCURE</button>
+        </form>
 
-      {searchValue && handleSearch()}
+        {searchValue && handleSearch()}
+      </main>
     </>
   );
 }

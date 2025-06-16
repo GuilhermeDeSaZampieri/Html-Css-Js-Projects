@@ -3,17 +3,7 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 }
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
 
-body {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
 
 @media (prefers-color-scheme: light) {
   :root {

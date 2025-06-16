@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .headerIcon {
   display: flex;
   align-items: center;
@@ -13,6 +19,10 @@ header {
 }
 
 details {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-top: 1.4rem;
   margin-bottom: 1.4rem;
 }
@@ -30,18 +40,35 @@ a:hover {
   color: #535bf2;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+
 .searchRecipe {
   display: flex;
   justify-content: center;
   gap: 10px;
   padding: 5px;
   font-size: 1rem;
+
+  width: 50%;
+  max-width: 600px;
 }
 input {
   padding: 1em 1.2em;
   border-radius: 5px;
   border: none;
-  width: 40%;
+  width: 90%;
+  flex-grow: 1;
+  min-width: 700px;
+  flex-grow: 1;
 }
 
 button {
@@ -65,7 +92,7 @@ button:focus-visible {
 
 .searchFor {
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .recipes {
@@ -73,15 +100,16 @@ button:focus-visible {
   column-gap: 1.3rem;
   row-gap: 1.5rem;
   grid-template-columns: 1fr 1fr 1fr;
-
-  width: 70vw;
+  width: 65vw;
   color: #3343f1;
+  margin-bottom: 4rem;
 }
 .recipe {
   background-color: white;
 }
 .recipeImg {
   width: 100%;
+  max-height: 300px;
 }
 .recipeDetails {
   text-align: start;
@@ -93,7 +121,10 @@ button:focus-visible {
 .recipeClass {
   background-color: #72c0ff96;
   border-radius: 10px;
-  width: 15%;
   display: flex;
+  padding-inline: 10px;
+  padding-block: 2px;
   justify-content: center;
+  align-items: center;
+  max-width: fit-content;
 }
