@@ -2,16 +2,18 @@ import { useRef, useState, type FormEvent } from 'react';
 import './App.css';
 import { CiForkAndKnife } from 'react-icons/ci';
 import { FaArrowLeft, FaYoutube } from 'react-icons/fa';
+import { MdVerified } from 'react-icons/md';
 
 type recipe = {
   idMeal: string;
   strMeal: string;
   strCategory: string;
   strInstructions: string;
-  strArea: string;
   strMealThumb: string;
   strYoutube: string;
-  strIgredient: [];
+
+  [key: `strMeasure${number}`]: string | null;
+  [key: `strIngredient${number}`]: string | null;
 };
 
 function App() {
@@ -35,6 +37,7 @@ function App() {
 
       setSearchValue(`Receita encontrada "${name}"`);
       setMeal(data.meals);
+      console.log(data.meals[6]);
     } catch (error) {
       console.log(error);
     }
@@ -77,31 +80,52 @@ function App() {
 
                 {showRecipe === prop.idMeal && (
                   <div className="recipeInfo">
-                    <div className="buttonBack">
-                      <button className="btnBack" onClick={handleBackClick}>
-                        {' '}
-                        <FaArrowLeft /> Back To Home{' '}
-                      </button>
-                    </div>
+                    <div className="divRecipeInfo">
+                      <div className="buttonBack">
+                        <button className="btnBack" onClick={handleBackClick}>
+                          {' '}
+                          <FaArrowLeft /> Back To Home{' '}
+                        </button>
+                      </div>
 
-                    <img src={prop.strMealThumb} alt="" />
-                    <h3 className="recipeName">{prop.strMeal}</h3>
-                    <div className="recipeClass">
-                      <h5>{prop.strCategory}</h5>
-                    </div>
+                      <img className="imgInfoRecipe" src={prop.strMealThumb} alt="" />
 
-                    <div className="instructions">
-                      <h3>Instructions</h3>
-                      <p>{prop.strInstructions}</p>
-                    </div>
+                      <div className="recipeDetailsInfo">
+                        <h1 className="recipeName">{prop.strMeal}</h1>
+                        <div className="recipeClass">
+                          <h4>{prop.strCategory}</h4>
+                        </div>
+                      </div>
 
-                    <div className="igredients">
-                      <h3>Ingredients</h3>
-                      <a className="youtube" href={prop.strYoutube} >
-                        <FaYoutube /> Watch Youtube
-                      </a>
-                    </div>
+                      <div className="instructions">
+                        <h2>Instructions</h2>
+                        <p>{prop.strInstructions}</p>
+                      </div>
 
+                      <div className="igredients">
+                        <h2>Ingredients</h2>
+                          <ul>
+                            {Array.from({ length: 20 }, (_, i) => i + 1)
+                              .map(i => {
+                                const ingredient = prop[`strIngredient${i}`];
+                                const measure = prop[`strMeasure${i}`];
+                                return ingredient && ingredient.trim() ? { ingredient, measure, index: i } : null;
+                              })
+                              .filter(item => item !== null)
+                              .map(({ ingredient, measure, index }) => (
+                                <li key={index}>
+                                  <MdVerified color="blue" />
+                                  {measure && measure.trim() ? `${measure.trim()} ` : ''}
+                                  {ingredient}
+                                </li>
+                              ))}
+                          </ul>
+
+                        <a className="youtube" href={prop.strYoutube} target="_blank">
+                          <FaYoutube /> Watch Video
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>
