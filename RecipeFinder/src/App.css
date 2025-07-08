@@ -11,6 +11,11 @@
   color: #4c5bf2;
   font-size: 2.5rem;
 }
+.headerIcon:hover{
+  scale: 1.1;
+  cursor: pointer;
+}
+
 header {
   margin-top: 2rem;
   display: grid;
@@ -134,14 +139,20 @@ button:focus-visible {
 }
 
 .recipeInfo {
+  top: 0;
   left: 0;
-  background-color: rgba(245, 245, 245, 0.932);
+  background-color: rgba(245, 245, 245, 0.836);
   display: grid;
+  padding: 2rem;
+  height: 100%;
   justify-items: center;
-  position: absolute;
+  overflow-y: auto;
+  position: fixed;
+  z-index: 999;
 }
+
 .divRecipeInfo {
-  background-color: rgb(245, 245, 245);
+  background-color: rgba(245, 245, 245, 0.568);
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -209,4 +220,8 @@ li{
   background-color: rgb(227, 229, 231);
   list-style-type: none;
   padding: 0.5rem;
+}
+li:hover{
+  scale: 1.08;
+  cursor: pointer;
 }

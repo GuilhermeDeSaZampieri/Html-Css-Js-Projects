@@ -139,7 +139,7 @@ function App() {
     <>
       <main className="wrapper">
         <header>
-          <h1 className="headerIcon">
+          <h1 className="headerIcon" onClick={() => location.reload()}>
             <CiForkAndKnife /> Recipe Finder
           </h1>
           <p>Encontre receitas deliciosas do mundo todo</p>
